@@ -1,20 +1,19 @@
 package com.ltrsoft.distributerapp.pojoclasses;
 
-public class distributer_cock {
+public class Distributer_Cock {
 
     private int distributer_cock_id;
     private int cock_id;
     private int distributer_id;
 
-    public distributer_cock(int distributer_cock_id, int cock_id, int distributer_id) {
+    public Distributer_Cock(int distributer_cock_id, int cock_id, int distributer_id) {
         this.distributer_cock_id = distributer_cock_id;
         this.cock_id = cock_id;
         this.distributer_id = distributer_id;
     }
 
     public int getDistributer_cock_id() {
-        return distributer_cock_id;
-    }
+        return distributer_cock_id;    }
 
     public void setDistributer_cock_id(int distributer_cock_id) {
         this.distributer_cock_id = distributer_cock_id;
