@@ -6,4 +6,6 @@
     </style>
 
     <style name="Theme.DistributerAPP" parent="Base.Theme.DistributerAPP" />
+
+
 </resources>
