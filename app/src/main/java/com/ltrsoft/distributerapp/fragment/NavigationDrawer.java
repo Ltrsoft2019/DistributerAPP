@@ -15,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,6 +27,9 @@ public class NavigationDrawer extends Fragment {
 
     NavigationView navigationView;
     DrawerLayout drawerLayout;
+    Toolbar toolbar;
+    private ImageView notification;
+    FrameLayout notificationSection;
 
     public NavigationDrawer() {
         // Required empty public constructor
@@ -35,20 +40,35 @@ public class NavigationDrawer extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.navigation_drawer_fragment, container, false);
+        toolbar = view.findViewById(R.id.toolbar);
+        drawerLayout = view.findViewById(R.id.drawer_layout);
+        notification = view.findViewById(R.id.notification);
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event here
+                Notification_Fragment notificationFragment = new Notification_Fragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main,notificationFragment).addToBackStack(null).commit();
+            }
+        });
+
 
         // Set the initial fragment
         Home_Fragment homeFragment = new Home_Fragment();
+        toolbar.setTitle("Dashboard");
+
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, homeFragment).commit();
 
         // Setup Toolbar
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
+
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         assert activity != null;
         activity.setSupportActionBar(toolbar);
 
         // Setup Drawer Layout and Toggle
-         drawerLayout = view.findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 getActivity(), drawerLayout, toolbar,
                 R.string.navigation_drawer_open,  // String resources for accessibility
@@ -68,24 +88,24 @@ public class NavigationDrawer extends Fragment {
 
                 if (item.getItemId() == R.id.nav_home) {
 
-                    BottomNav(homeFragment);
+                    BottomNav(homeFragment, "Dashboard");
 
                 }else if (item.getItemId() == R.id.nav_add) {
 
                     Add_Customer_Fragment addCustomerFragment = new Add_Customer_Fragment();
-                    BottomNav(addCustomerFragment);
+                    BottomNav(addCustomerFragment, "Add Customer");
                 } else if (item.getItemId() == R.id.nav_report) {
 
                     Report_Fragment reportFragment = new Report_Fragment();
-                    BottomNav(reportFragment);
+                    BottomNav(reportFragment, "Report");
 
                 } else if (item.getItemId() == R.id.nav_service) {
 
                     AddService_Fragment serviceFragment = new AddService_Fragment();
-                    BottomNav(serviceFragment);
+                    BottomNav(serviceFragment, "Add Service");
 
                 }
-                return false;
+                return true;
             }
         });
 
@@ -135,9 +155,11 @@ public class NavigationDrawer extends Fragment {
         Toast.makeText(getActivity(), "LOGOUT", Toast.LENGTH_SHORT).show();
     }
 
-    private void BottomNav(Fragment fragment) {
+    private void BottomNav(Fragment fragment,String title) {
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment).commit();
+
+        toolbar.setTitle(title);
     }
 
     private void Sidenav(Fragment fragment) {
