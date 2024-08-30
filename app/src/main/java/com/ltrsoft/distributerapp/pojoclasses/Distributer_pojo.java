@@ -1,6 +1,6 @@
 package com.ltrsoft.distributerapp.pojoclasses;
 
-public class Distributer {
+public class Distributer_pojo {
 
     private int distributer_id;
     private String owner_full_name;
@@ -17,7 +17,7 @@ public class Distributer {
     private String gst_no;
     private String is_service_provider;
 
-    public Distributer(int distributer_id, String owner_full_name, String shop_name, int mobile, String country, String state, String district, String city, String email_id, String password, String address, String pan_no, String gst_no, String is_service_provider) {
+    public Distributer_pojo(int distributer_id, String owner_full_name, String shop_name, int mobile, String country, String state, String district, String city, String email_id, String password, String address, String pan_no, String gst_no, String is_service_provider) {
         this.distributer_id = distributer_id;
         this.owner_full_name = owner_full_name;
         this.shop_name = shop_name;
