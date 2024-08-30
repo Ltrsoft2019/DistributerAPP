@@ -1,11 +1,11 @@
 package com.ltrsoft.distributerapp.pojoclasses;
 
-public class Distributer_Server {
+public class Distributer_Server_pojo {
     private int distributer_server_id;
     private int distributer_id;
     private int server_id;
 
-    public Distributer_Server(int distributer_server_id, int distributer_id, int server_id) {
+    public Distributer_Server_pojo(int distributer_server_id, int distributer_id, int server_id) {
         this.distributer_server_id = distributer_server_id;
         this.distributer_id = distributer_id;
         this.server_id = server_id;
