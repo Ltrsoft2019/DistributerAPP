@@ -1,5 +1,7 @@
 package com.ltrsoft.distributerapp.distributermodelclasses;
 
+import com.ltrsoft.distributerapp.pojoclasses.Distributer_pojo;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -12,7 +14,7 @@ public interface Distributers {
 
         @FormUrlEncoded
         @POST("create_distributer.php")
-        Call<Distributers> create_Distributers(
+        Call<Distributer_pojo> create_Distributers(
                 @Field("distributer_id") int distributer_id,
                 @Field("owner_full_name") String  owner_full_name,
                 @Field("shop_name") String shop_name,
@@ -30,7 +32,7 @@ public interface Distributers {
         );
         @FormUrlEncoded
         @POST("update_distributer.php")
-        Call<Distributers> update_Distributers(
+        Call<Distributer_pojo> update_Distributers(
                 @Field("distributer_id") int distributer_id,
                 @Field("owner_full_name") String  owner_full_name,
                 @Field("shop_name") String shop_name,
@@ -47,14 +49,14 @@ public interface Distributers {
                 @Field("is_service_provider") String is_service_provider
         );
         @GET("read_distributer.php")
-        Call<Distributers> read_by_id_Distributers(
+        Call<Distributer_pojo> read_by_id_Distributers(
                 @Field("distributer_id") int distributer_id
         );
         @GET("readall_distributer.php")
-        Call<List<Distributers>> readall_Distributers();
+        Call<List<Distributer_pojo>> readall_Distributers();
 
         @POST("delete_distributer.php")
-        Call<Distributers> delete_Distributers(
+        Call<Distributer_pojo> delete_Distributers(
                 @Field("distributer_id") int distributer_id
         );
     }

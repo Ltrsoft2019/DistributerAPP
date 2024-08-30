@@ -1,4 +1,6 @@
 package com.ltrsoft.distributerapp.distributermodelclasses;
+import com.ltrsoft.distributerapp.pojoclasses.Distributer_Client_pojo;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -13,26 +15,26 @@ public interface Distributer_Client {
 
         @FormUrlEncoded
         @POST("create_distributer_client.php")
-        Call<Distributer_Client> create_Distributer_Client(
+        Call<Distributer_Client_pojo> create_Distributer_Client(
                 @Field("distributer_id") String distributer_id ,
                 @Field("client_id") String  client_id
         );
         @FormUrlEncoded
         @POST("update_distributer_client.php")
-        Call<Distributer_Client> update_Distributer_Client(
+        Call<Distributer_Client_pojo> update_Distributer_Client(
                 @Field("distributer_id") String distributer_id ,
                 @Field("client_id") String  client_id
         );
         @GET("read_distributer_client.php")
-        Call<Distributer_Client> read_by_id_Distributer_Client(
+        Call<Distributer_Client_pojo> read_by_id_Distributer_Client(
                 @Field("distributer_id") String distributer_id
         );
 
         @GET("readall_distributer_client.php")
-        Call<List<Distributer_Client>> readall_Distributer_Client();
+        Call<List<Distributer_Client_pojo>> readall_Distributer_Client();
 
         @POST("delete_distributer_client.php")
-        Call<Distributer_Client> delete_Distributer_Client(
+        Call<Distributer_Client_pojo> delete_Distributer_Client(
                 @Field("distributer_id") String distributer_id
         );
     }

@@ -97,7 +97,7 @@ public class NavigationDrawer extends Fragment {
                 } else if (item.getItemId() == R.id.nav_report) {
 
                     Report_Fragment reportFragment = new Report_Fragment();
-                    BottomNav(reportFragment, "Report");
+                    BottomNav(reportFragment, "");
 
                 } else if (item.getItemId() == R.id.nav_service) {
 
@@ -117,23 +117,23 @@ public class NavigationDrawer extends Fragment {
                 if (id == R.id.nav_profile) {
 
                     Profile_Fragment profileFragment = new Profile_Fragment();
-                    Sidenav(profileFragment);
+                    Sidenav(profileFragment,"Profile");
 
 
                 } else if (id == R.id.nav_settings) {
 
                     Settings_Fragment settingsFragment = new Settings_Fragment();
-                    Sidenav(settingsFragment);
+                    Sidenav(settingsFragment,"Settings");
 
                 } else if (id == R.id.nav_history)  {
 
                     History_Fragment historyFragment = new History_Fragment();
-                    Sidenav(historyFragment);
+                    Sidenav(historyFragment,"History");
 
                 } else if (id == R.id.nav_order) {
 
                     ProductOrder_Fragment productOrderFragment = new ProductOrder_Fragment();
-                    Sidenav(productOrderFragment);
+                    Sidenav(productOrderFragment,"Order Product");
 
                 }else if (id == R.id.nav_logout) {
                     Logout();
@@ -162,8 +162,10 @@ public class NavigationDrawer extends Fragment {
         toolbar.setTitle(title);
     }
 
-    private void Sidenav(Fragment fragment) {
+    private void Sidenav(Fragment fragment,String title) {
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment).commit();
+
+        toolbar.setTitle(title);
     }
 }

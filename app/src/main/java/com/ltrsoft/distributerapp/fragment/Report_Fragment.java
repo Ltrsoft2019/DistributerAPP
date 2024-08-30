@@ -3,64 +3,60 @@ package com.ltrsoft.distributerapp.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ltrsoft.distributerapp.Adapters.Report_Adapter;
+import com.ltrsoft.distributerapp.MainActivity;
 import com.ltrsoft.distributerapp.R;
+import com.ltrsoft.distributerapp.pojoclasses.ReportPojo;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Report_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Report_Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    List<ReportPojo> reportList;
+    Report_Adapter reportAdapter;
+    RecyclerView recyclerView;
+    ReportPojo reportPojo;
 
     public Report_Fragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Report_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Report_Fragment newInstance(String param1, String param2) {
-        Report_Fragment fragment = new Report_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.report_fragment, container, false);
+        View view= inflater.inflate(R.layout.report_fragment, container, false);
+
+        recyclerView= view.findViewById(R.id.report_recycler);
+
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+
+        reportList = new ArrayList<>();
+
+        reportList.add(new ReportPojo("TOTAL SALES","12,628"));
+        reportList.add(new ReportPojo("EXPENSES","2,250"));
+        reportList.add(new ReportPojo("PROJECTS","23"));
+        reportList.add(new ReportPojo("AVAILABLE DEVICES","2000"));
+        reportList.add(new ReportPojo("INVOICES","4"));
+        reportList.add(new ReportPojo("SOLD DEVICES","1,030"));
+        reportList.add(new ReportPojo("UPCOMING DEVICES","5"));
+        reportList.add(new ReportPojo("PENDING ORDERS","5"));
+
+
+
+
+        recyclerView.setAdapter(new Report_Adapter(getContext() , reportList));
+
+
+        return view;
     }
 }

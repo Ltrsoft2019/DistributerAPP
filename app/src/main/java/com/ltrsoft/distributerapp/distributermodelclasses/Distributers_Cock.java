@@ -1,5 +1,7 @@
 package com.ltrsoft.distributerapp.distributermodelclasses;
 
+import com.ltrsoft.distributerapp.pojoclasses.Distributer_Cock_pojo;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -14,28 +16,28 @@ public interface Distributers_Cock {
 
         @FormUrlEncoded
         @POST("create_distributer_cock.php")
-        Call<Distributers_Cock> create_Distributer_Cock(
+        Call<Distributer_Cock_pojo> create_Distributer_Cock(
                 @Field("distributer_id") int distributer_id,
                 @Field("cock_id") int cock_id
         );
         @FormUrlEncoded
         @POST("update_distributer_cock.php")
-        Call<Distributers_Cock> update_Distributer_Cock(
+        Call<Distributer_Cock_pojo> update_Distributer_Cock(
                 @Field("distributer_id") int distributer_id,
                 @Field("distributer_cock_id") int distributer_cock_id,
                 @Field("cock_id_")int cock_id
 
         );
         @GET("read_distributer_cock.php")
-        Call<Distributers_Cock> read_by_id_Distributer_Cock(
+        Call<Distributer_Cock_pojo> read_by_id_Distributer_Cock(
                 @Field("distributer_cock_id") int distributer_cock_id
         );
         @GET("readall_distributer_cock.php")
-        Call<List<Distributers_Cock>> read_all_Distributer_Cock();
+        Call<List<Distributer_Cock_pojo>> read_all_Distributer_Cock();
 
 
         @POST("delete_distributer_cock.php ")
-        Call<Distributers_Cock> delete_by_id_Distributer_Cock(
+        Call<Distributer_Cock_pojo> delete_by_id_Distributer_Cock(
                 @Field("distributer_cock_id") int distributer_cock_id
         );
     }
