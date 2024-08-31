@@ -1,14 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ServiceDetails_Fragment">
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="415dp"
+            android:layout_height="85dp"
+            android:background="#ACE1AF"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/image2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="25dp"
+                android:text="Service Details"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="406dp"
+            android:layout_height="618dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="400dp"
+                android:layout_height="550dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="-17dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="347dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="First name"
+                            android:textSize="25sp" />
+
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Last name"
+                            android:textSize="25sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Phone Number"
+                            android:textSize="25sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="E-mail"
+                            android:textSize="25sp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="139dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="110dp"
+                            android:layout_weight="1"
+                            android:text="Problem"
+                            android:textSize="25sp" />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="103dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="107dp"
+                            android:layout_height="47dp"
+                            android:layout_weight="1"
+                            android:text="State"
+                            android:textSize="25sp" />
+
+                        <Spinner
+                            android:id="@+id/statespinner"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="103dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="-44dp"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="107dp"
+                            android:layout_height="47dp"
+                            android:layout_weight="1"
+                            android:text="City"
+                            android:textSize="25sp" />
+
+                        <Spinner
+                            android:id="@+id/cityspinner"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="139dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="155dp"
+                            android:layout_marginTop="-15dp"
+                            android:layout_weight="1"
+                            android:text="Address"
+                            android:textSize="25sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#ACE1AF"
+                android:text="Add"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
+
+
+
+
+
+
